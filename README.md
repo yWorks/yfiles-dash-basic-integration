@@ -1,5 +1,5 @@
 # yFiles Dash sample
-Shows how to integrate yFiles for HTML in a [Dash/Plotly](https://plot.ly/products/dash/) application.
+Shows how to integrate [yFiles for HTML](https://www.yworks.com/yfileshtml) in a [Dash/Plotly](https://plot.ly/products/dash/) application.
 
 # Structure
 `./dash-sample-app/`: A modification of the [Hello Dash](https://dash.plot.ly/getting-started) application. The modifications are:
@@ -20,7 +20,7 @@ The yFiles sample component has optional `data` and `layoutMode` properties that
 # Building the Dash component
 There are two major steps in the build process: First the React component is bundled with webpack, then a python script is run to create a tarball that can be imported in the Dash application. 
 
-To successfully build the React component, you need to copy a valid yFiles for HTML library to the component's resources.
+To successfully build the React component, you need to copy a valid yFiles for HTML library to the component's resources, which you can [evaluate for free here](https://www.yworks.com/products/yfiles-for-html/evaluate).
 
 ## Copy the yFiles library to the component
 The yFiles library and associated files should be copied to `./src/lib/resources/yfiles/`. The structure should be as follows:

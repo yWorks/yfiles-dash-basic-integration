@@ -1,0 +1,5 @@
+include yfiles_components/bundle.js
+include yfiles_components/metadata.json
+include yfiles_components/package.json
+include yfiles_components/yfiles.css
+include README.md

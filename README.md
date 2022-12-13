@@ -1,5 +1,5 @@
 # yFiles Dash sample
-Shows how to integrate [yFiles for HTML](https://www.yworks.com/yfileshtml) in a [Dash/Plotly](https://plot.ly/products/dash/) application.
+Shows how to integrate an older version of [yFiles for HTML](https://www.yworks.com/yfileshtml) in a [Dash/Plotly](https://plot.ly/products/dash/) application.
 
 # Structure
 `./dash-sample-app/`: A modification of the [Hello Dash](https://dash.plot.ly/getting-started) application. The modifications are:
@@ -9,6 +9,8 @@ Shows how to integrate [yFiles for HTML](https://www.yworks.com/yfileshtml) in a
 `./src/`: The sample component application based on the [Dash Component Boilerplate](https://github.com/plotly/dash-component-boilerplate) repository. It consists of the yFiles sample component and a basic React application to run the component in a JS environment.
  
 The yFiles sample component is basically the [Collapsible-Trees demo](https://live.yworks.com/demos/complete/collapse/index.html) implemented as ES6 React component. 
+
+In order to get this to work with newer versions of yFiles, one would be using the newer yFiles node module package and install it via npm. Then after adjusting the imports to simply import `from 'yfiles'`, most of the code should still be valid.
 
 # Component Properties
 The yFiles sample component has optional `data` and `layoutMode` properties that may be set through the Dash application.
@@ -20,15 +22,7 @@ The yFiles sample component has optional `data` and `layoutMode` properties that
 # Building the Dash component
 There are two major steps in the build process: First the React component is bundled with webpack, then a python script is run to create a tarball that can be imported in the Dash application. 
 
-To successfully build the React component, you need to copy a valid yFiles for HTML library to the component's resources, which you can [evaluate for free here](https://www.yworks.com/products/yfiles-for-html/evaluate).
-
-## Copy the yFiles library to the component
-The yFiles library and associated files should be copied to `./src/lib/resources/yfiles/`. The structure should be as follows:
-- `./src/lib/resources/yfiles/es6-modules/` (The yFiles ES6 modules folder)
-- `./src/lib/resources/yfiles/license.js`
-- `./src/lib/resources/yfiles/yfiles.css`
-
-Additionally, the yFiles CSS file needs to be copied to `./yfiles_components/` which is what the python script bundles into the Dash component. `yfiles.css` is a vital part of the yFiles for HTML library which is why it needs to be bundled alongside. It is also referenced in the MANIFEST, too.
+To successfully build the React component, you need install a yFiles for HTML package file using npm, which you can [evaluate for free here](https://www.yworks.com/products/yfiles-for-html/evaluate).
 
 # How to run
 1. Build the Dash component with `npm run build:all-tar` (don't forget to copy a yFiles library to the component's resources first). This will bundle the React component with webpack and run the python scripts to create a tarball that is consumed by Dash. The tarball will be placed in `./dash-sample-app/`.
